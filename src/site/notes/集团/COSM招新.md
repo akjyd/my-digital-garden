@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/集团/COSM招新/","dg-note-properties":{}}
 ---
 
-![392489aa359eb6d32686f985ad4c9862.jpeg](/img/user/392489aa359eb6d32686f985ad4c9862.jpeg)
+![392489aa359eb6d32686f985ad4c9862.jpeg](/img/user/%E9%9B%86%E5%9B%A2/392489aa359eb6d32686f985ad4c9862.jpeg)
 ## [COSM]
 
 **负责人**:DuskLucifer
