@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 自动给笔记内容里的所有图片包上 lightbox 链接
+  var content = document.querySelector('.markdown-preview-view') || document.body;
+  var imgs = content.querySelectorAll('img');
+  imgs.forEach(function(img, i) {
+    // 已经在 <a> 里的跳过
+    if (img.parentNode.tagName === 'A') return;
+    // 排除导航/UI 图标(只包 user 图片目录下的)
+    if (!img.src.includes('/img/user/')) return;
+
+    var a = document.createElement('a');
+    a.href = img.src;
+    a.className = 'glightbox';
+    a.setAttribute('data-gallery', 'page-gallery');
+    img.parentNode.insertBefore(a, img);
+    a.appendChild(img);
+    img.classList.add('thumb-img');
+  });
+
+  if (typeof GLightbox !== 'undefined') {
+    GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true
+    });
+  }
+});
+</script>
