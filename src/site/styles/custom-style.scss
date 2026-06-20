@@ -1,14 +1,17 @@
 body {
   // 主色:更鲜明的琥珀黄
-  --accent-h: 40;
-  --accent-s: 95%;
-  --accent-l: 60%;
+  --text-accent: #f0b842;
+  --text-accent-hover: #ffd166;
+  --link-color: #f0b842;
+  --link-color-hover: #ffd166;
+  --interactive-accent: #f0b842;
+  --interactive-accent-hover: #ffd166;
   
-  // 背景:深一点更有质感
+  // 背景:深一点,有质感
   --background-primary: #1a1d24;
   --background-secondary: #14171c;
   
-  // 文字:稍微提亮一点
+  // 文字:稍微提亮
   --text-normal: #e0e3e8;
   --text-muted: #9aa0ad;
 }
