@@ -109,11 +109,16 @@ body {
   margin-bottom: 8px;
 }
 
-// 时间戳:作为附属信息,弱化处理
-.timestamps {
+// 时间戳:整体弱化
+div.timestamps {
   font-size: 0.85em !important;
-  color: var(--text-muted) !important;
   margin-top: 1em !important;
   margin-bottom: 1.5em !important;
   opacity: 0.7;
+}
+
+// 时间戳内的文字和图标:统一用 muted 灰
+div.timestamps span.human-date,
+div.timestamps svg {
+  color: var(--text-muted) !important;
 }
