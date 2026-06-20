@@ -1,13 +1,14 @@
 body {
-    /***
-      ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
-      IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
-   ***/
-    //  background-color: white;
-    //  .content {
-    //   font-size: 14px;
-    //  }
-    //  h1 {
-    //   color: black;
-    //  }
+  // 主色:更鲜明的琥珀黄
+  --accent-h: 40;
+  --accent-s: 95%;
+  --accent-l: 60%;
+  
+  // 背景:深一点更有质感
+  --background-primary: #1a1d24;
+  --background-secondary: #14171c;
+  
+  // 文字:稍微提亮一点
+  --text-normal: #e0e3e8;
+  --text-muted: #9aa0ad;
 }
