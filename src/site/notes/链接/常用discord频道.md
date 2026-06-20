@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/链接/常用discord频道/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/链接/常用discord频道/","updated":"2026-06-19T23:46:59.069+08:00","dg-note-properties":{}}
 ---
 
 | 频道                                    | 备注       |
