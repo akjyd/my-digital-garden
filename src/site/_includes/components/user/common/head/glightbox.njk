@@ -4,7 +4,14 @@
 document.addEventListener('DOMContentLoaded', function() {
   var content = document.querySelector('.markdown-preview-view') || document.body;
 
-  // 1. 自动给笔记内的图片包 lightbox 链接(保持你已有的功能)
+  // 从当前 URL 推出笔记所在文件夹路径
+  // 例如 /船/升级你的第一艘新手船/ → 文件夹是 "船"
+  // 例如 /集团/COSM招新/ → 文件夹是 "集团"
+  // 例如 /a/b/c/note/ → 文件夹是 "a/b/c"
+  var pathParts = location.pathname.split('/').filter(Boolean);
+  var folderPath = pathParts.slice(0, -1).join('/');
+
+  // 1. 自动接管 <img> 标签(已有功能)
   content.querySelectorAll('img').forEach(function(img) {
     if (img.parentNode.tagName === 'A') return;
     if (!img.src.includes('/img/user/')) return;
@@ -18,14 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
     img.classList.add('thumb-img');
   });
 
-  // 2. 新增:把指向图片文件的文字链接也接管成 lightbox
+  // 2. 自动接管指向图片的 <a> 链接,并修正相对路径
   content.querySelectorAll('a').forEach(function(a) {
-    // 已经是 glightbox 的跳过
     if (a.classList.contains('glightbox')) return;
-    // 链接内部已经包了 img 的跳过(避免重复处理)
     if (a.querySelector('img')) return;
-    // 只处理 href 指向图片文件的
-    if (!/\.(png|jpe?g|webp|gif)$/i.test(a.href)) return;
+
+    var rawHref = a.getAttribute('href') || '';
+
+    // 只处理图片扩展名结尾的
+    if (!/\.(png|jpe?g|webp|gif)(\?.*)?$/i.test(rawHref)) return;
+
+    // 如果是相对路径(不以 / 或 http 开头),改写成 /img/user/<folder>/<file>
+    var isRelative = !/^(\/|https?:\/\/)/i.test(rawHref);
+    if (isRelative && folderPath) {
+      a.href = '/img/user/' + folderPath + '/' + rawHref;
+    }
 
     a.classList.add('glightbox');
     a.setAttribute('data-gallery', 'page-gallery');
