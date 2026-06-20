@@ -147,3 +147,31 @@ div.timestamps svg {
   transform: scale(1.03);
   border-color: var(--text-accent);
 }
+
+
+// 代码块复制按钮
+.markdown-preview-view pre {
+  position: relative;
+}
+
+.markdown-preview-view .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 2px 8px;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.markdown-preview-view pre:hover .code-copy-btn {
+  opacity: 1;
+}
+
+.markdown-preview-view .code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
