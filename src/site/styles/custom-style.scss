@@ -1,7 +1,4 @@
 body {
-  // ========================================
-  // 强调色:琥珀金
-  // ========================================
   --text-accent: #f0b842;
   --text-accent-hover: #ffd166;
   --link-color: #f0b842;
@@ -9,28 +6,16 @@ body {
   --interactive-accent: #f0b842;
   --interactive-accent-hover: #ffd166;
   
-  // ========================================
-  // 背景色
-  // ========================================
   --background-primary: #1a1d24;
   --background-secondary: #14171c;
   
-  // ========================================
-  // 文字颜色
-  // ========================================
   --text-normal: #e0e3e8;
   --text-muted: #9aa0ad;
   
-  // ========================================
-  // 行距:更舒展
-  // ========================================
   --dg-content-line-height: 1.7;
 }
 
-// ========================================
 // 标题:拉开层级差异
-// ========================================
-// 一级标题(页面大标题):最显眼
 .markdown-preview-view h1 {
   font-size: 2.4em !important;
   font-weight: 700 !important;
@@ -40,7 +25,6 @@ body {
   border-bottom: 2px solid var(--text-accent);
 }
 
-// 二级标题(##):带左侧色条强调
 .markdown-preview-view h2 {
   font-size: 1.7em !important;
   font-weight: 600 !important;
@@ -50,7 +34,6 @@ body {
   border-left: 4px solid var(--text-accent);
 }
 
-// 三级标题(###):简洁
 .markdown-preview-view h3 {
   font-size: 1.25em !important;
   font-weight: 600 !important;
@@ -59,9 +42,7 @@ body {
   color: var(--text-accent);
 }
 
-// ========================================
-// 表格:去掉默认丑边框,改成现代风格
-// ========================================
+// 表格:克制配色,只保留分隔线
 .markdown-preview-view table {
   border-collapse: collapse;
   width: 100%;
@@ -69,18 +50,17 @@ body {
   border: none !important;
 }
 
-// 表头:浅色背景区分
+// 表头:不用金色,只在底部用金色细线分隔
 .markdown-preview-view table thead th {
-  background-color: rgba(240, 184, 66, 0.1);  // 琥珀金的 10% 透明背景
-  color: var(--text-accent);
+  background-color: rgba(255, 255, 255, 0.04);  // 极浅的灰白
+  color: var(--text-normal);                     // 用普通文字色,不要金色
   font-weight: 600;
   text-align: left;
   padding: 12px 16px !important;
   border: none !important;
-  border-bottom: 2px solid var(--text-accent) !important;
+  border-bottom: 2px solid var(--text-accent) !important;  // 唯一的金色:底部细线
 }
 
-// 表格单元格:只保留底部细线
 .markdown-preview-view table tbody td {
   padding: 12px 16px !important;
   border: none !important;
@@ -88,23 +68,18 @@ body {
   vertical-align: top;
 }
 
-// 表格行悬停:轻微高亮
 .markdown-preview-view table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.03);
 }
 
-// ========================================
-// 分隔线:更细腻
-// ========================================
+// 分隔线
 .markdown-preview-view hr {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin: 2.5em 0;
 }
 
-// ========================================
-// 链接:鼠标悬停时下划线
-// ========================================
+// 链接
 .markdown-preview-view a {
   text-decoration: none;
   transition: color 0.2s;
@@ -114,9 +89,7 @@ body {
   text-decoration: underline;
 }
 
-// ========================================
-// 折叠块(<details>):漂亮一点
-// ========================================
+// 折叠块
 .markdown-preview-view details {
   background-color: rgba(255, 255, 255, 0.03);
   border-left: 3px solid var(--text-accent);
