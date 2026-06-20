@@ -122,3 +122,8 @@ div.timestamps span.human-date,
 div.timestamps svg {
   color: var(--text-muted) !important;
 }
+
+// 隐藏侧边栏的"主页"链接
+.filetree-sidebar a.filename[href="/"] {
+  display: none !important;
+}
