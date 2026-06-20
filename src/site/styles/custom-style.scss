@@ -127,3 +127,23 @@ div.timestamps svg {
 .filetree-sidebar a.filename[href="/"] {
   display: none !important;
 }
+
+// 图片缩略图(GLightbox 浮层效果由 JS 自动加)
+.markdown-preview-view img.thumb-img {
+  max-width: 320px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: zoom-in;
+  transition: transform 0.2s, border-color 0.2s;
+  margin: 8px 8px 8px 0;
+  display: inline-block;
+}
+
+.markdown-preview-view img.thumb-img:hover {
+  transform: scale(1.03);
+  border-color: var(--text-accent);
+}
