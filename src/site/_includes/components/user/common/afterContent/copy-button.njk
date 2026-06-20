@@ -1,1 +1,28 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 处理所有 <pre><code> 代码块
+  document.querySelectorAll('pre > code').forEach(function(code) {
+    var pre = code.parentNode;
+    if (pre.dataset.copyReady) return;
+    pre.dataset.copyReady = '1';
+    pre.style.position = 'relative';
 
+    var btn = document.createElement('button');
+    btn.className = 'code-copy-btn';
+    btn.type = 'button';
+    btn.innerHTML = '📋';
+    btn.setAttribute('aria-label', '复制');
+
+    btn.addEventListener('click', function() {
+      navigator.clipboard.writeText(code.textContent).then(function() {
+        btn.innerHTML = '✓';
+        setTimeout(function() { btn.innerHTML = '📋'; }, 1200);
+      }).catch(function() {
+        btn.innerHTML = '✗';
+      });
+    });
+
+    pre.appendChild(btn);
+  });
+});
+</script>
