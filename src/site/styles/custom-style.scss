@@ -108,3 +108,10 @@ body {
 .markdown-preview-view details[open] summary {
   margin-bottom: 8px;
 }
+
+// 在时间戳前面加文字提示
+.markdown-preview-view .timestamps span:has(time)::before {
+  content: "最后更新：";
+  color: var(--text-muted);
+  margin-right: 4px;
+}
