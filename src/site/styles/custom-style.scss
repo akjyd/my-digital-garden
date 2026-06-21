@@ -175,3 +175,45 @@ div.timestamps svg {
 .markdown-preview-view .code-copy-btn:hover {
   background: rgba(255, 255, 255, 0.15);
 }
+
+
+
+// ===== 图片(GLightbox)=====
+
+// 正常显示的图片(alt 为空,可点击放大)
+.markdown-preview-view img.thumb-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: zoom-in;
+  transition: border-color 0.2s;
+  margin: 8px 0;
+}
+
+.markdown-preview-view img.thumb-img:hover {
+  border-color: var(--text-accent);
+}
+
+// 文字链接形式的图片(alt 有内容)
+.markdown-preview-view a.img-link {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 0 2px;
+  background: rgba(240, 184, 66, 0.1);
+  border: 1px solid rgba(240, 184, 66, 0.3);
+  border-radius: 4px;
+  font-size: 0.9em;
+  text-decoration: none !important;
+  color: var(--text-accent);
+}
+
+.markdown-preview-view a.img-link:hover {
+  background: rgba(240, 184, 66, 0.2);
+  border-color: var(--text-accent);
+}
+
+.markdown-preview-view a.img-link::before {
+  content: "🖼 ";
+  opacity: 0.7;
+}
