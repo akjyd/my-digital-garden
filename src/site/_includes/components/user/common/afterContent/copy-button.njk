@@ -1,6 +1,10 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // 处理所有 <pre><code> 代码块
+  // 两个 SVG 图标
+  var copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>';
+
+  var checkIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
   document.querySelectorAll('pre > code').forEach(function(code) {
     var pre = code.parentNode;
     if (pre.dataset.copyReady) return;
@@ -10,15 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var btn = document.createElement('button');
     btn.className = 'code-copy-btn';
     btn.type = 'button';
-    btn.innerHTML = '📋';
+    btn.innerHTML = copyIcon;
     btn.setAttribute('aria-label', '复制');
 
     btn.addEventListener('click', function() {
       navigator.clipboard.writeText(code.textContent).then(function() {
-        btn.innerHTML = '✓';
-        setTimeout(function() { btn.innerHTML = '📋'; }, 1200);
+        btn.innerHTML = checkIcon;
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.innerHTML = copyIcon;
+          btn.classList.remove('copied');
+        }, 1500);
       }).catch(function() {
-        btn.innerHTML = '✗';
+        btn.textContent = '✗';
       });
     });
 
