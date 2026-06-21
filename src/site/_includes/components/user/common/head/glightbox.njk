@@ -4,45 +4,33 @@
 document.addEventListener('DOMContentLoaded', function() {
   var content = document.querySelector('.markdown-preview-view') || document.body;
 
-  // 从当前 URL 推出笔记所在文件夹路径
-  // 例如 /船/升级你的第一艘新手船/ → 文件夹是 "船"
-  // 例如 /集团/COSM招新/ → 文件夹是 "集团"
-  // 例如 /a/b/c/note/ → 文件夹是 "a/b/c"
-  var pathParts = location.pathname.split('/').filter(Boolean);
-  var folderPath = pathParts.slice(0, -1).join('/');
-
-  // 1. 自动接管 <img> 标签(已有功能)
   content.querySelectorAll('img').forEach(function(img) {
-    if (img.parentNode.tagName === 'A') return;
     if (!img.src.includes('/img/user/')) return;
+    if (img.closest('a.glightbox')) return;
 
-    var a = document.createElement('a');
-    a.href = img.src;
-    a.className = 'glightbox';
-    a.setAttribute('data-gallery', 'page-gallery');
-    img.parentNode.insertBefore(a, img);
-    a.appendChild(img);
-    img.classList.add('thumb-img');
-  });
+    var alt = (img.getAttribute('alt') || '').trim();
 
-  // 2. 自动接管指向图片的 <a> 链接,并修正相对路径
-  content.querySelectorAll('a').forEach(function(a) {
-    if (a.classList.contains('glightbox')) return;
-    if (a.querySelector('img')) return;
+    if (alt) {
+      // 模式 1:alt 有内容 → 替换为文字链接,文字就是 alt
+      var a = document.createElement('a');
+      a.href = img.src;
+      a.className = 'glightbox img-link';
+      a.setAttribute('data-gallery', 'page-gallery');
+      a.textContent = alt;
 
-    var rawHref = a.getAttribute('href') || '';
-
-    // 只处理图片扩展名结尾的
-    if (!/\.(png|jpe?g|webp|gif)(\?.*)?$/i.test(rawHref)) return;
-
-    // 如果是相对路径(不以 / 或 http 开头),改写成 /img/user/<folder>/<file>
-    var isRelative = !/^(\/|https?:\/\/)/i.test(rawHref);
-    if (isRelative && folderPath) {
-      a.href = '/img/user/' + folderPath + '/' + rawHref;
+      var target = img.closest('picture') || img;
+      target.parentNode.replaceChild(a, target);
+    } else {
+      // 模式 2:alt 为空 → 正常显示图片,包一层 lightbox 让它可点击放大
+      if (img.parentNode.tagName === 'A') return;
+      var wrap = document.createElement('a');
+      wrap.href = img.src;
+      wrap.className = 'glightbox';
+      wrap.setAttribute('data-gallery', 'page-gallery');
+      img.parentNode.insertBefore(wrap, img);
+      wrap.appendChild(img);
+      img.classList.add('thumb-img');
     }
-
-    a.classList.add('glightbox');
-    a.setAttribute('data-gallery', 'page-gallery');
   });
 
   if (typeof GLightbox !== 'undefined') {
