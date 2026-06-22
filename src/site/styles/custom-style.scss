@@ -27,13 +27,13 @@
 body {
 
   font-family: 
-    "Inter",                    // 英文优先 Inter
-    "PingFang SC",              // Mac 中文
-    "Microsoft YaHei",          // Windows 中文
-    "Noto Sans CJK SC",         // Linux 中文
-    -apple-system, BlinkMacSystemFont,  // Mac/iOS 兜底
-    "Segoe UI",                 // Windows 兜底
-    sans-serif;                 // 终极兜底
+    "Inter",
+    "PingFang SC",
+    "Microsoft YaHei",
+    "Noto Sans CJK SC",
+    -apple-system, BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
   
   --text-accent: #f0b842;
   --text-accent-hover: #ffd166;
