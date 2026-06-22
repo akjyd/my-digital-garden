@@ -1,5 +1,39 @@
+// ===== 自托管 Inter 字体 =====
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/styles/fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/styles/fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/styles/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+
 body {
 
+  font-family: 
+    "Inter",                    // 英文优先 Inter
+    "PingFang SC",              // Mac 中文
+    "Microsoft YaHei",          // Windows 中文
+    "Noto Sans CJK SC",         // Linux 中文
+    -apple-system, BlinkMacSystemFont,  // Mac/iOS 兜底
+    "Segoe UI",                 // Windows 兜底
+    sans-serif;                 // 终极兜底
   
   --text-accent: #f0b842;
   --text-accent-hover: #ffd166;
