@@ -23,14 +23,29 @@
   src: url('/img/Inter-Bold.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/img/NotoSansSC-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/img/NotoSansSC-Bold.woff2') format('woff2');
+}
 
 body {
 
   font-family: 
     "Inter",
+    "Noto Sans SC",
     "PingFang SC",
     "Microsoft YaHei",
-    "Noto Sans CJK SC",
     -apple-system, BlinkMacSystemFont,
     "Segoe UI",
     sans-serif !important;
